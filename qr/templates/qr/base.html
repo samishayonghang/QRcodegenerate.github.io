@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "qr/css/style.css" %}">
+    
+        <title>{% block title %} {% endblock title%} </title>
+        <style>
+            body {
+                background-color:grey;
+            }
+            .navbar {
+                background-color:white; /* Dark background for the navbar */
+                padding:0; /* Smaller padding for a more compact navbar */
+                display: flex;
+                justify-content: center; /* Center the items horizontally */
+                align-items: center; /* Center the items vertically */
+            }
+    
+            .nav-list {
+                list-style-type: none; /* Remove bullet points */
+                margin: 0;
+                padding: 3px;
+                display: flex; /* Arrange items in a horizontal line */
+                /* Center align the navigation items */
+                gap:70px ; /* Add space between items */
+            }
+    
+            .nav-list li {
+                display: inline; /* Inline items (not necessary with flex) */
+            }
+    
+            .nav-list li {
+                display: flex; /* Make li elements behave like boxes */
+               /* Light background for the boxes */
+                padding:0; /* Add padding for better click area */
+                
+                margin: 10px 5px; /* Add space between boxes */
+                transition: background-color 0.3s; /* Smooth transition for hover effect */
+            }
+    
+            .nav-list a:hover {
+                background-color: #555; /* Change background color on hover */
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+    <nav class="navbar">
+        <ul class="nav-list" >
+           <li> <a href="{%url 'qrurl'%}">URL</a> </li>
+           <li> <a href="{%url 'textqr'%}">TEXT</a> </li>
+        </ul>
+    </nav>
+
+        
+        {%block content%} {% endblock content %}
+    </body>
+    </html>
+    

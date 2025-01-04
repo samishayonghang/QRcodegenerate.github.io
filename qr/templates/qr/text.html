@@ -1,0 +1,15 @@
+{% extends "qr/base.html" %}
+{% load static %}
+{% block title %}textqr{% endblock title %}
+
+
+{% block content %}
+<h1>Generate your QR code here</h1>
+<form action=" {% url "textqr" %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="custom-btn">Generate</button>
+    <hr>
+    <img src="data:image/png;base64,{{qrcodeimage}}">
+</form>
+{% endblock content%}
